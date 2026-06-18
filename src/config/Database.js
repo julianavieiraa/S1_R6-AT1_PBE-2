@@ -9,8 +9,10 @@ const pool = mysql.createPool({
     port: process.env.DB_PORT,
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
-
+    queueLimit: 0,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 (async () => {
@@ -18,7 +20,7 @@ const pool = mysql.createPool({
         const connection = await pool.getConnection();
         console.log(`Conctando ao MySQL`);
         connection.release();
-    
+
     } catch (error) {
         console.error(`Erro ao conectar ao MySQL: ${error}`);
     }
