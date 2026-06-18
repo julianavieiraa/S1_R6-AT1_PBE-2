@@ -3,7 +3,7 @@ import produtoRoutes from './routes/produto.routes.js';
 import categoriaRoutes from './routes/categoria.routes.js'
 import 'dotenv/config.js';
 import path from 'path';
-import { initializeDatabase } from './config/Database.js';
+import { initializeDatabase } from './configs/Database.js';
 
 const app = express();
 app.use('/', produtoRoutes);
