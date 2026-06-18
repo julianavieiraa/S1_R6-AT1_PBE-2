@@ -1,0 +1,21 @@
+CREATE DATABASE loja;
+USE loja;
+
+CREATE TABLE categorias (
+  idCategoria INT AUTO_INCREMENT PRIMARY KEY,
+  descricaoCategoria VARCHAR(100) NOT NULL,
+  dataCad DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE produtos (
+  idProduto INT AUTO_INCREMENT PRIMARY KEY,
+  idCategoria INT NOT NULL,
+  nomeProduto VARCHAR(100) NOT NULL,
+  valorProduto DECIMAL(10,2) NOT NULL,
+  vinculoImagem VARCHAR(255),
+  dataCad DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (idCategoria) REFERENCES categorias (idCategoria)
+);
+
+SELECT DATABASE();
+DESCRIBE produtos;
