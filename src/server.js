@@ -6,11 +6,9 @@ import path from 'path';
 import { initializeDatabase } from './config/Database.js';
 
 const app = express();
-
+app.use('/uploads', express.static('uploads'));
 app.use('/', produtoRoutes);
 app.use('/', categoriaRoutes);
-
-app.use('/images', express.static(path.resolve('uploads/images')));
 
 initializeDatabase().then(() => {
     app.listen(process.env.SERVER_PORT, () => {
