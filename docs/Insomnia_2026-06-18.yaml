@@ -1,0 +1,277 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: S1_R1 - AT1_PBE 1
+meta:
+  id: wrk_24ce3d70519846dc8905ea300fba720d
+  created: 1770810974156
+  modified: 1770810974156
+  description: ""
+collection:
+  - name: Produtos
+    meta:
+      id: fld_62023236521e46739dd20f12b794921a
+      created: 1770894723186
+      modified: 1770894834237
+      sortKey: -1770894723186
+      description: ""
+    children:
+      - url: localhost:8000/produtos
+        name: SELECT ALL
+        meta:
+          id: req_0bcff2b1314742619747f9c10bee0308
+          created: 1770894714315
+          modified: 1770894811756
+          isPrivate: false
+          description: ""
+          sortKey: -1770894731299
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/produtos/1
+        name: DELETE
+        meta:
+          id: req_871686c253ce41e5a161e618e9f3a926
+          created: 1770894840649
+          modified: 1770899000395
+          isPrivate: false
+          description: ""
+          sortKey: -1770894731499
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/produtos/2
+        name: SELECT
+        meta:
+          id: req_628d2a707f37411eae5ceb7efd867aa6
+          created: 1770895158288
+          modified: 1770899580159
+          isPrivate: false
+          description: ""
+          sortKey: -1770894731599
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/produtos
+        name: INSERT
+        meta:
+          id: req_62a29bce3012482d8668c8913c82ecc9
+          created: 1770897000719
+          modified: 1770899122268
+          isPrivate: false
+          description: ""
+          sortKey: -1770894731349
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\52430382881\Downloads\mouseGamer.png
+              type: file
+            - name: nomeProduto
+              value: "Mouse "
+              description: ""
+              disabled: false
+            - name: valorProduto
+              value: "19.99"
+              description: ""
+              disabled: false
+            - name: descricaoCategoria
+              value: "Periféricos "
+              description: ""
+              disabled: false
+            - name: idCategoria
+              value: "1"
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Categoria
+    meta:
+      id: fld_5781608b44e04c169a38c73779a345c6
+      created: 1770896792009
+      modified: 1770896989232
+      sortKey: -1770896792009
+      description: ""
+    children:
+      - url: http://localhost:8000/categorias
+        name: INSERT Categoria
+        meta:
+          id: req_2fba4d503af045fc879ccc31389b5a1f
+          created: 1770810999812
+          modified: 1770899606918
+          isPrivate: false
+          description: ""
+          sortKey: -1770896990473
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricaoCategoria": "Papelaria"
+            }
+        parameters:
+          - name: descricaoCategoria
+            value: Periféricos
+            description: ""
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8000/categorias
+        name: SELECT
+        meta:
+          id: req_d9225a48799048a08854fab4c45809fe
+          created: 1770896990373
+          modified: 1770899618711
+          isPrivate: false
+          description: ""
+          sortKey: -1770896990373
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/categorias/2
+        name: DELETE
+        meta:
+          id: req_ecaa766aec34465dbcab6ab15d92a0e0
+          created: 1770897496540
+          modified: 1770899627463
+          isPrivate: false
+          description: ""
+          sortKey: -1770896990573
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/categorias
+        name: InsertById
+        meta:
+          id: req_72fe31bf81194cc2addfa53b24364af7
+          created: 1773399615618
+          modified: 1773399615618
+          isPrivate: false
+          description: ""
+          sortKey: -1770896990423
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricaoCategoria": "Papelaria"
+            }
+        parameters:
+          - name: descricaoCategoria
+            value: Periféricos
+            description: ""
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_692b428f89a3348720fd5031b31f45ced71cbde5
+    created: 1770810974173
+    modified: 1770810974173
+environments:
+  name: Base Environment
+  meta:
+    id: env_692b428f89a3348720fd5031b31f45ced71cbde5
+    created: 1770810974164
+    modified: 1781788737076
+    isPrivate: false
+  data:
+    "{{": ""
