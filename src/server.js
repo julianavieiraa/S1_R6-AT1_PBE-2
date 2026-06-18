@@ -21,4 +21,3 @@ initializeDatabase().then(() => {
     console.error("Erro ao inicializar o banco de dados:", err);
 });
 
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
