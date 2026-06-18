@@ -1,30 +1,41 @@
 import mysql from 'mysql2/promise';
-import 'dotenv/config';
+import dotenv from 'dotenv';
 
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    port: process.env.DB_PORT,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-    ssl: {
-        rejectUnauthorized: false
+// Singleton para a conexão com o banco de dados
+class Database {
+    static #instance = null;
+    #pool = null;
+
+    #createPool() {
+        this.#pool = mysql.createPool({
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            database: process.env.DB_DATABASE,
+            port: process.env.DB_PORT,
+            waitForConnections: true,
+            connectionLimit: 100,
+            queueLimit: 0,
+            ssl: {
+                rejectUnauthorized: false
+            }
+        });
     }
-});
 
-(async () => {
-    try {
-        const connection = await pool.getConnection();
-        console.log(`Conctando ao MySQL`);
-        connection.release();
-
-    } catch (error) {
-        console.error(`Erro ao conectar ao MySQL: ${error}`);
+    static getInstance() {
+        if (!Database.#instance) {
+            Database.#instance = new Database();
+            Database.#instance.#createPool();
+        }
+        return Database.#instance;
     }
-})();
+
+    getPool() {
+        return this.#pool;
+    }
+}
+
+export const connection = Database.getInstance().getPool();
 
 export async function initializeDatabase() {
     console.log("Inicializando o banco de dados e tabelas...");
