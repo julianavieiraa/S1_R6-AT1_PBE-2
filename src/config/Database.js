@@ -72,3 +72,5 @@ export async function initializeDatabase() {
         throw error;
     }
 }
+
+export default pool;
